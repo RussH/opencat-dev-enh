@@ -1,0 +1,1 @@
+sc create sphinx type= share start= auto binPath= "%PATH%" DisplayName= "Sphinx Indexing Service"

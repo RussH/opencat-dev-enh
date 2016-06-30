@@ -1,0 +1,1 @@
+sc create sphinx type= share start= auto binPath= "c:\wamp\www\cats\sphinx\bin\searchd.exe" DisplayName= "Sphinx Indexing Service"

@@ -1,0 +1,128 @@
+$Id: INSTALL 2672 2007-07-12 15:18:01Z andrew $
+
+Sphinx_for_CATS Installation Guide
+Last Revised: July 12, 2007
+    _____________________________________________________________________
+
+                   Sphinx for CATS Installation Procedure
+
+
+    Preamble:
+      NOTE: This document is not yet complete. Please visit the forums at
+      http://www.catsone.com/ if additional help is needed.
+
+
+    Index:
+      A) Requirements
+      B) Introduction
+      C) New Installation - Windows
+      D) New Installation - Unix/Linux
+
+
+    A) Requirements
+
+      * Linux, FreeBSD or Windows NT-based (2000, XP, Vista) Operating System
+      * CATS (open source applicant tracking system) installed
+
+    B) Introduction
+
+        Sphinx is a full-text search engine, distributed under GPL version 2.
+        With CATS, Sphinx can dramatically improve the speed of database
+        text searches (for example, candidate resume searches). This package
+        includes the following:
+
+        i)   A copy of Sphinx designed to work with CATS.
+
+        ii)  A CATS module designed to take advantage of Sphinx.
+
+        iii) An automated installer to setup Sphinx and CATS configuration
+             files and install all other necessary files.
+
+        This installer is a Bash script that will run under most UNIX-like
+        operating systems as well as Cygwin, a Linux-like environment for
+        Microsoft Windows.
+
+    C) New Installation - Windows
+
+        To install Sphinx for CATS using Microsoft Windows, you first need to
+        dowload and install a program called Cygwin, which is a Linux-like
+        environment. You can download the latest copy of Cygwin directly from
+        their website @ http://www.cygwin.com/
+
+        Installation Steps:
+
+        1)  Download and install Cygwin. Run Cygwin.
+
+        2)  Download "sphinx_for_cats.tar.gz" and extract it into your CATS
+            directory. It is possible to use Cygwin to do this:
+
+            cd /cygdrive/c/path/to/cats
+            tar -zxvf /cygdrive/c/path/to/sphinx_for_cats.tar.gz
+            cd sphinx_for_cats
+
+        3)  Run the automated installer to complete the installation.
+
+            ./install.sh
+
+        The automated installer will install Sphinx, the CATS module, all
+        configuration files and it will start the Sphinx searchd service.
+
+        Once the automated installer has completed it will create a file
+        called "install_service.com" inside your new Sphinx installation
+        directory (it will tell you where that is).
+
+        To install Sphinx as a service (this is necessary or Sphinx will
+        not run after a computer restart) run this file as per the installer's
+        instructions.
+
+    D)  New Installation - Unix/Linux
+
+        You will need shell access or a terminal on the Unix/Linux machine
+        you are running CATS on to use the automated installer.
+
+        Note: You should be logged on as a user with write access to the
+        CATS folder. It is NOT SUGGESTED to be logged on as root.
+
+        Installation Steps:
+
+        1)  Download "sphinx_for_cats.tar.gz" and extract it into your
+            CATS directory.
+
+            cd /path/to/cats
+            tar -zpxvf /path/to/sphinx_for_cats.tar.gz
+            cd sphinx_for_cats
+
+        2)  Allow the automated installer to execute and run the automated
+            installer to complete the installation.
+
+            chmod a+x install.sh
+            ./install.sh
+
+        The automated installer will install Sphinx, the CATS module, all
+        configuration files and it will start the Sphinx searchd service.
+
+        If you use an init.d compatible service the installer will attempt to
+        install a startup script called "searchd". In most cases, this will
+        be unsuccessful (as you shouldn't be logged on as root).
+
+        If you have an init.d compatible system, follow these instructions
+        to install Sphinx as a startup service after you have run the
+        automated installer:
+
+        1)  Log on as root
+
+            su
+
+        2)  Copy the "searchd" init script (created in the current directory)
+            to /etc/rc.d/init.d (or wherever your init.d scripts go on your
+            system)
+
+            cp searchd /etc/rc.d/init.d
+
+        3)  Run chkconfig to run Sphinx on startup.
+
+            chkconfig --add searchd
+
+_____________________________________________________________________
+
+      Copyright (C) 2006 - 2007 Cognizo Technologies, Inc.
