@@ -17,14 +17,6 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `zadmin_stepbysteppsatsdev`
---
-CREATE DATABASE IF NOT EXISTS `zadmin_stepbysteppsatsdev` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `zadmin_stepbysteppsatsdev`;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `access_level`
 --
 
